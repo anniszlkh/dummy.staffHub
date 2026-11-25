@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Staff Companies</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="assets/images/hub logo.png" rel="icon">
+
+        <script src="https://cdn.jsdeliver.net/npm/chart.js"></script>
+
+        <link rel="stylesheet" href="css/dashboard.css">
+    </head>
+    <body>
+        <div class="dashboard-wrapper">
+            <!--SIDEBAR-->
+            <aside class="sidebar">
+                <div class="sidebar-logo">
+                    <div class="logo-circle">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <span>Staff Hub</span>
+                </div>
+
+                <!--MENU-->
+                <div class="menu-section">
+                    <p class="menu-title">MAIN</p>
+
+                    <a href="dashboard.html" class="menu-item">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    
+                    <a href="companies.html" class="menu-item">
+                        <i class="bi bi-people"></i>
+                        <span>Companies</span>
+                    </a>
+
+                    <a href="staff_profile.html" class="menu-item active">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>Staff Profile</span>
+                    </a>
+
+                </div>
+
+                <!--REPORTS-->
+                <div class="menu-section">
+                    <p class="menu-title">REPORTS</p>
+                </div>
+
+                <!--SETTINGS-->
+                <div class="menu-section">
+                    <p class="menu-title">SYSTEM</p>
+
+                    <a href="#" class="menu-item">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+
+                <!--USER-->
+                <div class="sidebar-user">
+                    <div class="user-avatar">A</div>
+                    <div><strong>Admin</strong></div>
+                </div>
+                <i class="bi bi-three-dots ms-auto"></i>
+            </aside>
+
+            <main class="main-content">
+                 <header class="topbar">
+                    <div class="beadcrumb-area">
+                        <button class="mobile-menu">
+                            <i class="bi bi-list"></i>
+                        </button>
+
+                        <span class="beadcrumb-muted">Staff Profile</span>
+
+                        <i class="bi bi-chevron-right"></i>
+                        <strong>Manage Profile</strong>
+                    </div>
+
+                    <div class="topbar-actions">
+                        <div class="search-box">
+                            <i class="bi bi-search"></i>
+
+                            <input type="text" id="searchStaff" placeholder="Search company...">
+                        </div>
+
+                        <button class="top-icon">
+                            <i class="bi bi-sun"></i>
+                        </button>
+
+                        <button class="top-icon">
+                            <i class="bi bi-bell">
+                                <span class="notification-dot"></span>
+                            </i>
+                        </button>
+
+                        <div class="top-avatar">A</div>
+                    </div>
+                </header>
+
+                <!--page content-->
+                <section class="dashboard-content">
+                    <div class="page-heading">
+                        <div>
+                            <h2>Overview</h2>
+                            <p>Staff Information</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+
+                        <!--ROW 2-->
+                        <div class="row g-3 mb-4">
+
+                            <div class="col-xl-8">
+                                <div class="overview-card staff-list-card">
+
+                                    <div class="staff-header-custom">
+                                        <div>
+                                            <h5>Staff List</h5>
+                                            <p>Namelist by Company</p>
+                                        </div>
+
+                                        <select id="companyfilter"><!--ambik department dari db-->
+                                            <option value="">All Company</option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="company-namelist" id="companyNameList"><!--JS-->
+                                    <div class="staff-list-name">
+                                        <div class="staff-info">
+                                            <h6>Ali Bin Abu</h6>
+                                            <p>Operations Department</p>
+                                        </div>
+                                            <a href="staff_profile.html" class="view-staff-button">
+                                                View
+                                            </a>
+                                    </div>
+                                    <div class="staff-list-name">
+                                        <div class="staff-info">
+                                            <h6>Ali Bin Abu</h6>
+                                            <p>Operations Department</p>
+                                        </div>
+                                            <a href="staff_profile.html" class="view-staff-button">
+                                                View
+                                            </a>
+                                    </div>
+                                    <div class="staff-list-name">
+                                        <div class="staff-info">
+                                            <h6>Ali Bin Abu</h6>
+                                            <p>Operations Department</p>
+                                        </div>
+                                            <a href="staff_profile.html" class="view-staff-button">
+                                                View
+                                            </a>
+                                    </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4">
+                                <div class="overview-card gender-card mb-3">
+                                    <div class="staff-header-custom">
+
+                                        <div>
+                                            <h5>Total by Gender</h5>
+                                            <p>Gender Distribution</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="gender-chart">
+                                        <canvas id="genderChart"></canvas>
+                                    </div>
+
+                                </div>
+
+                                 <div class="overview-card">
+                                    <div class="card-header-custom">
+
+                                        <div>
+                                            <h5>Total By Department</h5>
+                                        </div>                        
+
+                                    </div>
+
+                                    <div class="chart-container">
+                                        <canvas id="departmentChart"></canvas>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
